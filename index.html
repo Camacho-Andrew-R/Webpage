@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Satellite Squad Comics</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+		<!-- this is a comment showing that is the page title-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- This is to fit the page to a device. -->
+		<!-- blink_me is borrowed code. Note original by Alnitak -->
+	</head>
+	<body lang=EN-US style='tab-size: .5in;'>	
+		<div class="newspaper">
+			<h3 style="margin-right: 1em; border-top: 1px solid white; border-left: 1px solid white; background-color: rgb(30, 5, 70);"> Main Menu </h3>
+			<p> <br /> <a href="https://satellitesquad.art/test.html" target="_blank"> <strong>Gallery 1</strong> </a> </p>
+			<p> <br /> <a href="https://satellitesquad.art/gallery/Concepts.jpg" target="_blank"> <strong>Gallery 2</strong> </a> </p>
+			<p> <br /> <a href="{{ url_for('navigation_page') }}" target="_blank"> <strong>Gallery 3</strong> </a> </p>
+		</div>
+			<h1><em>Satellite Squad Comics</em></h1>
+		<div>
+			<h2>What is Satellite Squad Comics?</h2>
+		</div>
+	<p class="intro"><span id="intro"></span>
+	Satellite Squad Comics is a small team, in fact, the idea started from two friends! Our goal is to provide engaging content for the love of the genre. Our stories feature our flagship
+	characters Moon-Man and Lunar-Lad amongst others. Similar to the origins of the creators, the characters are from California and many stories will feature familiar landmarks, environments, and
+	cultural references to those who know the area. Inspiration was drawn from some of the biggest superhero teamups present in comics, but see if you can spot any specifics! We hope to provide an enjoyable
+	experience for all readers.</p>
+	<div class="column-1 leftz">
+		<h3>You can expect:</h3>
+			<ul>
+				<li style = "color: rgb(175, 255, 255); font-size: 14pt;">Explosive Action!</li>
+				    <br>
+				<li style = "color: rgb(255, 175, 255); font-size: 14pt;">Dynamic Storytelling!</li>
+				    <br>
+				<li style = "color: rgb(255, 255, 175); font-size: 14pt;">Memorable Characters!</li>
+			</ul>
+	</div>
+		
+	<div class="column-2 rightz">
+		<h3> Find out more in the adventures of:</h3>
+		<img class="logo" src="final_logo.png"> <br/>
+	</div>
+	
+    <div style="clear: left; clear: right;"></div>
+		<br />
+		<h3 style="text-align:center; padding-right: 2%;">Closing Statement:</h3>
+		<p class="closing">Thank you for visiting the page! The book should be fleshed out sometime soon, feel free to check back for updates on the progress. We hope to
+		see you back again. Satellite Squad out!</p>
+		
+		<div class="closing">
+		<form id="sign_form" action="{{ url_for('personal_page') }}" method="post">
+			<label for="fname" style="color:rgb(255, 255, 255);">Nickname:</label>
+  			<input type="text" id="Username" name="Username">
+			<button type="button" id="newUser" name="newButton">Register New User</button>
+			<button type="submit" id="returnUser" name="returnButton">Returning User</button>
+		</form>
+		<p id="demo" style="color:rgb(255, 255, 255);"></p>
+		</div>
+		<div class="closingAdd" id="btn_div"></div>
+	<script>
+	const d = new Date();
+	var hoursCalc = d.getHours();
+	let message; 
+	if (hoursCalc < 12) {
+		message = "Good morning!"
+	} else if (hoursCalc < 17) {
+		message = "Good afternoon!"
+	} else {
+		message = "Good evening!"
+	}
+	document.getElementById("intro").innerHTML = message +  " Welcome to our page! ";
+	// 
+	var submitFormNull = function(){
+		if (localStorage.getItem("Username") === null) {
+			document.getElementById("demo").innerHTML = "Please register a name.";
+		} else {
+		document.getElementById("demo").innerHTML = "Hello, " + localStorage.getItem("Username") + " enjoy your visit!";
+		}
+	}
+
+	var submitFormDone = function(){
+		var inputField = document.getElementById("Username").value;
+		localStorage.setItem("Username", inputField);
+		document.getElementById("demo").innerHTML = "Hello, " + localStorage.getItem("Username") + " enjoy your visit!";
+		// guidance
+		var made_element = document.createElement("button");
+		made_element.appendChild(document.createTextNode("To personal page"));
+		var page_id = document.getElementById("made_btn");
+		page_id.appendChild(made_element); // add to the div made_btn
+	};
+
+	document.getElementById("newUser").addEventListener("click", submitFormDone);
+	document.getElementById("returnUser").addEventListener("click", submitFormNull);
+	</script>
+	</body>
+</html>
