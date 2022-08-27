@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<title>Satellite Squad Comics</title>
+        <link rel="stylesheet" href="Navigation_Style.css">
+		<!-- this is a comment showing that is the page title-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- This is to fit the page to a device. -->
+		<!-- blink_me is borrowed code. Note original by Alnitak -->
+    </head>
+    <body>
+        <h1>Main Gallery</h1>
+    <div class="leftz">
+        <h3 class="left">Concept Work:</h3>
+        <ul>
+            <li>Concept Art</li><br>
+            <li>Character Descriptions</li><br>
+            <li>Storyboards</li>
+        </ul>
+    </div>
+    <div class="rightz">
+        <h3 class="right">Additional Resources:</h3>
+        <ul>
+            <li>Contact Information</li><br>
+            <li>Biographies</li><br>
+            <li>Reccomendations</li>
+        </ul>
+    </div>
+    <p id="Info"></p>
+    <script src="/Navigation_JS.js"></script>
+    </body>
+</html>
